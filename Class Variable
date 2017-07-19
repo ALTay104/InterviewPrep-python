@@ -1,0 +1,28 @@
+class Employee:
+    raise_amount = 1.04
+    def __init__(self, first, last, pay): #constructor, so that we can eliminate line 13-21.
+        self.first = first
+        self.last = last
+        self.pay = pay
+        self.email = first + '.' +  last + '@company.com'
+
+    def fullname(self):
+        return '{} {}'.format(self.first, self.last)
+
+    def apply_raise(self):
+        self.pay = int(self.pay * self.raise_amount)
+
+
+emp1 = Employee('corey', 'morey', 50000) #directly create something like line 13-21. remove redundancy
+emp2 = Employee('Test', 'cola', 60000)   #we also call object as instance
+
+Employee.raise_amount = 1.05 #this will change all the raise_amount value
+emp1.raise_amount = 1.05     #this will only change raise_amount value in emp1
+
+#there are 2 methods to print a variable in class
+print(Employee.raise_amount)
+print(emp1.raise_amount)
+print(emp2.raise_amount)
+print(emp1.__dict__)         #we can all attribute in the class
+
+
