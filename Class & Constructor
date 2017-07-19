@@ -1,0 +1,33 @@
+class Employee:
+    def __init__(self,first,last,pay): #constructor, so that we can eliminate line 13-21.
+        self.first = first
+        self.last = last
+        self.pay = pay
+        self.email = first + '.' +  last + '@company.com'
+
+    def fullname(self):
+        return '{} {}'.format(self.first, self.last)
+
+emp1 = Employee('corey', 'morey', 50000) #directly create something like line 13-21. remove redundancy
+emp2 = Employee('Test', 'cola', 60000)
+
+#emp1.first = 'Corey'
+#emp1.last = 'Morey'
+#emp1.email = 'corey.com'
+#emp1.pay = 6000
+
+#emp2.first = 'coca'
+#emp2.last = 'Morey'
+#emp2.email = 'coca.com'
+#emp2.pay = 6000
+
+print(emp1.email)
+print(emp2.email)
+print(emp1.fullname())
+print(emp2.fullname())
+
+def main():
+    pass
+
+if __name__ == '__main__': #we only want to run this in this module. Not running this when someone import it
+    main()
