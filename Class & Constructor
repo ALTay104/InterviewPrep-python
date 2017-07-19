@@ -26,6 +26,9 @@ print(emp2.email)
 print(emp1.fullname())
 print(emp2.fullname())
 
+print(Employee.fullname(emp1))  #we can also directly calling class by passing instance into the method class
+
+
 def main():
     pass
 
