@@ -1,0 +1,62 @@
+class Employee:
+    raise_amount = 1.04
+    def __init__(self, first, last, pay): #constructor, so that we can eliminate line 13-21.
+        self.first = first
+        self.last = last
+        self.pay = pay
+        self.email = first + '.' +  last + '@company.com'
+
+    def fullname(self):
+        return '{} {}'.format(self.first, self.last)
+
+    def apply_raise(self):
+        self.pay = int(self.pay * self.raise_amount)
+
+
+class Developer(Employee): #inherit from employee class
+    raise_amount = 1.10
+
+    def __init__(self, first, last, pay, prog_language):
+        #inorder to pass in variable into parent class
+        super().__init__(first, last, pay)
+        self.prog_language = prog_language
+
+class Manager(Employee):
+    def __init__(self, first, last, pay, employee = None):
+        super().__init__(first, last, pay)
+        if employee is None:
+            self.employee = []
+        else:
+            self.employee = employee
+
+    def add_emp(self, emp):
+        if emp not in self.employee:
+            self.employee.append(emp)
+
+    def remove_emp(self, emp):
+        if emp in self.employee:
+            self.employee.remove(emp)
+
+    def print_emp(self):
+        for emp in self.employee:
+            print('-->', emp.fullname())
+
+dev1 = Developer('Corey', 'Schafer', 50000, 'Python')
+dev2 = Developer('Test', 'Employee', 60000, 'Java')
+
+mgr1 = Manager('Sue', 'Smith', 90000, [dev1])
+print(mgr1.email)
+print(mgr1.print_emp())
+print(mgr1.add_emp(dev2))
+print(mgr1.print_emp())
+
+#print(help(Developer))  #useful command to find out the class information
+print(dev1.pay)
+dev1.apply_raise()
+print(dev1.pay)
+
+print(dev1.email)
+print(dev1.prog_language)
+
+print(isinstance(mgr1, Employee)) #to check whether mgr1 instance is inheritance from class Employee
+print(issubclass(Developer, Employee)) #to check whether Developer is inherit from class Employee
