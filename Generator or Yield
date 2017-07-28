@@ -1,0 +1,13 @@
+def reverse(data):
+    for index in range(len(data)-1, -1, -1):
+        yield data[index]
+
+for char in reverse('golf'):
+    print('char')
+    
+    
+#1. line 5 then line 3 to yield
+#2. after yield , go line 6 
+#3. then go back to yield.
+#4. iterating between 3 and 6 until for loop exhausted 
+#5. normally line 2 will loop finish, but in yield case, it will yield to the caller.
