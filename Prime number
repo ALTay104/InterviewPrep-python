@@ -1,0 +1,19 @@
+/*Find prime number in between 10-500
+
+int n = 10; 
+bool IsPrime;
+
+while (n <= 500)
+{
+  IsPrime = True;
+  for (int i=2; i<=n; i++) //the number 1-n that u want to divide
+  {
+    if (n%i == 0) 
+    {
+      IsPrime = False;
+      break;
+    }
+    cout<<"prime: "<< n;
+    n++;
+  }
+}
